@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
@@ -17,6 +17,15 @@ export class PostsService {
 
   public getPost(postId: number): Observable<PostInterface> {
     return from(this.postRepository.findOne({where: {id: postId}, relations: ['user']})).pipe(
+        map((post: PostsEntity) => {
+          if (!post) {
+            throw new HttpException(
+                { status: HttpStatus.NOT_FOUND, error: 'Post is not found' },
+                HttpStatus.BAD_REQUEST,
+            );
+          }
+          return post;
+        }),
         map(({id, title, body, user}: PostsEntity) => ({userId: user.id, id, title, body})),
     );
   }
