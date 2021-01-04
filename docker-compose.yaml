@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+#  notion-backend-nestjs:
+#    container_name: notion-backend-nestjs
+#    image: node:12.7-alpine
+#    ports:
+#      - ${APP_BACKEND_PORT}:3000
+#    env_file:
+#      - .env
+#    volumes:
+#      - ./backend:/app
+#    depends_on:
+#      - notion-backend-postgres
+#    working_dir: /app
+#    command: npm run start:dev
+#    networks:
+#      - notion
+
+  notion-backend-postgres:
+    container_name: notion-backend-postgres
+    image: postgres:12
+    restart: on-failure
+    environment:
+      PGDATA: /var/lib/postgresql/data
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: postgres
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    volumes:
+#      - ./db:/var/lib/postgresql #windows
+      - ./var/postgres/data:/var/lib/postgresql/data #linux
+    networks:
+      - notion
+
+
+networks:
+  notion:
+    external: true
