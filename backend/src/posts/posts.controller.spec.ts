@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { PostsController } from './posts.controller';
 import { PostsService } from './posts.service';
-import { PostInterface } from './interfaces/post.interface';
 import { of } from 'rxjs';
+import { PostType } from './types/post.type';
 
 describe('PostsController', () => {
   let postsController: PostsController;
@@ -28,7 +28,7 @@ describe('PostsController', () => {
 
   describe('getPost', () => {
     it('should return data', async () => {
-      const result: PostInterface = {userId: 1, id: 2, body: 'body text', title: 'title text'};
+      const result: PostType = {userId: 1, id: 2, body: 'body text', title: 'title text'};
       jest.spyOn(postsService, 'getPost').mockImplementation(() => of(result));
 
       expect(await postsController.getPost({postId: 1}).toPromise()).toEqual(result);
@@ -37,7 +37,7 @@ describe('PostsController', () => {
 
   describe('getPosts', () => {
     it('should return data', async () => {
-      const result: PostInterface[] = [{userId: 1, id: 1, body: 'body text 1', title: 'title text 1'}, {userId: 2, id: 2, body: 'body text 2', title: 'title text 2'}];
+      const result: PostType[] = [{userId: 1, id: 1, body: 'body text 1', title: 'title text 1'}, {userId: 2, id: 2, body: 'body text 2', title: 'title text 2'}];
       jest.spyOn(postsService, 'getPosts').mockImplementation(() => of(result));
 
       expect(await postsController.getPosts().toPromise()).toEqual(result);

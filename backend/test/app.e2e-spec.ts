@@ -19,7 +19,7 @@ describe('AppController (e2e)', () => {
     return request(app.getHttpServer())
       .get('/version')
       .expect(200)
-      .expect('0.0.1');
+      .expect('{"version":"0.0.1"}');
   });
 
   afterEach(async () => {

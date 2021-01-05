@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
 import { AppModule } from '../src/app.module';
-import { PostInterface } from '../src/posts/interfaces/post.interface';
+import { PostType } from '../dist/types/post.type';
 
 describe('AppController (e2e)', () => {
   let app: INestApplication;
@@ -21,7 +21,7 @@ describe('AppController (e2e)', () => {
         .get('/posts')
         .expect(200)
         .expect(res => {
-          const resp = res.body as PostInterface[];
+          const resp = res.body as PostType[];
           expect(resp.length).toBe(10);
           expect(resp[0].userId).toBe(1);
           expect(resp[0].id).toBe(1);
@@ -35,7 +35,7 @@ describe('AppController (e2e)', () => {
         .get('/posts/1')
         .expect(200)
         .expect(res => {
-          const resp = res.body as PostInterface;
+          const resp = res.body as PostType;
           expect(resp.userId).toBe(1);
           expect(resp.id).toBe(1);
           expect(resp.body).toBe('quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto');

@@ -1,11 +1,14 @@
 import { Controller, Get } from '@nestjs/common';
+import { AppVersionType } from './app-version.type';
+import { ApiResponse } from '@nestjs/swagger';
 
 @Controller()
 export class AppController {
   constructor() {}
 
   @Get('version')
-  version(): string {
-    return process.env.npm_package_version;
+  @ApiResponse({ status: 200, description: 'App version.', type: AppVersionType})
+  version(): AppVersionType {
+    return { version: process.env.npm_package_version };
   }
 }
