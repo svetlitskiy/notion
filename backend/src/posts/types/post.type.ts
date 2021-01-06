@@ -1,6 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { PostInterface } from '../../../../common/interfaces/post.interface';
 
-export class PostType {
+export class PostType implements PostInterface {
     @ApiProperty({example: 1, description: 'userId'})
     public userId: number;
 

@@ -1,0 +1,14 @@
+<p>home works!</p>
+
+<form [formGroup]="form">
+
+  <mat-form-field class="input">
+    <mat-label>Id</mat-label>
+    <input matInput placeholder="id" formControlName="id">
+  </mat-form-field>
+  <button mat-raised-button
+          color="primary"
+          (click)="send()">
+    Send
+  </button>
+</form>
