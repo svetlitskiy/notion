@@ -6,6 +6,11 @@ const routes: Routes = [
     path: 'detail',
     loadChildren: () => import('./detail/detail.module').then((mod) => mod.DetailModule),
   },
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({

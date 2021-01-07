@@ -1,6 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { ErrorInterface } from '../../../common/interfaces/error.interface';
 
-export class ErrorType {
+export class ErrorType extends ErrorInterface {
     @ApiProperty({ description: 'Error code' })
     public statusCode: number;
 
