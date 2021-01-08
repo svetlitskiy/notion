@@ -1,6 +1,6 @@
-import { Observable, of, timer } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { PostInterface } from '../../../../common/interfaces/post.interface';
+import { PostInterface } from '@common/interfaces/post.interface';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 
@@ -16,7 +16,7 @@ const apiCacheTime = 1000 * 60 * 3; // 3 minutes
 })
 
 export class ApiService {
-  cash: Map<string, CashItemInterface> = new Map();
+  public cash: Map<string, CashItemInterface> = new Map();
 
   constructor(
     private http: HttpClient
@@ -26,7 +26,7 @@ export class ApiService {
     const cashKey = `getPost_${id}`;
     const cashData = this.getCashData(cashKey);
 
-    return cashData ? of(cashData.data) : this.http.get<PostInterface>('/api/posts/'+id).pipe(
+    return cashData ? of(cashData.data) : this.http.get<PostInterface>('/api/posts/' + id).pipe(
       tap((data: PostInterface) => this.setCashDate(cashKey, data)),
     );
   }
@@ -50,7 +50,7 @@ export class ApiService {
       if (item.updateTimestamp && apiCacheTime < new Date().getTime() - item.updateTimestamp) {
         this.cash.delete(key);
       }
-    })
+    });
   }
 
 

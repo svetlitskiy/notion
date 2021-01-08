@@ -29,11 +29,11 @@ export class HomeComponent implements OnInit, OnDestroy {
     private readonly _snackBar: MatSnackBar
   ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this._createForm();
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     this._destroy$.next();
   }
 
@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit, OnDestroy {
           console.error(data);
           this._snackBar.open(data.error.error);
         }
-      )
+      );
     }
   }
 
