@@ -1,4 +1,3 @@
-import { Exclude, Transform } from 'class-transformer';
 import {
   Column,
   Entity, JoinColumn,
@@ -12,7 +11,6 @@ import { UserEntity } from '../../user/entity/user.entity';
 export class PostsEntity {
   @PrimaryGeneratedColumn()
   public id: number;
-
 
   @ManyToOne(() => UserEntity, (user) => user.id)
   @JoinColumn({ name: 'user_id', referencedColumnName: 'id' })
@@ -29,7 +27,4 @@ export class PostsEntity {
   })
   public body: string;
 
-  // constructor(partial: Partial<PostsEntity>) {
-  //   Object.assign(this, partial);
-  // }
 }
