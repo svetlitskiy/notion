@@ -1,0 +1,8 @@
+@import '../share/styles/styles.scss';
+
+h1 {
+  @extend %h1-margin;
+  @extend %h1-title;
+  text-align: center;
+}
+

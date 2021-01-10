@@ -1,0 +1,18 @@
+<h1>Detail page</h1>
+
+  <div>
+    <button mat-raised-button color="primary" [routerLink]="['/home']">back</button>
+  </div>
+
+  <ng-container *ngIf="post$ | async as post">
+
+  <mat-form-field>
+    <mat-label>title</mat-label>
+    <input readonly matInput placeholder="title" [value]="post.title">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>body</mat-label>
+    <textarea readonly matInput placeholder="title" [value]="post.body"></textarea>
+  </mat-form-field>
+
+  </ng-container>

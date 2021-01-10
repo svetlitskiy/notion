@@ -1,0 +1,15 @@
+<h1>Home page</h1>
+
+<form [formGroup]="form" (ngSubmit)="send()">
+
+  <mat-form-field class="input">
+    <mat-label>Id</mat-label>
+    <input matInput placeholder="id" formControlName="id">
+    <mat-error *ngIf="id?.errors?.required">Field is required</mat-error>
+    <mat-error *ngIf="id?.errors?.min">Id must be greater than 0</mat-error>
+    <mat-error *ngIf="id?.errors?.max">Id must be less than {{ maxIdValue }}</mat-error>
+    <mat-error *ngIf="id?.errors?.pattern">Id must be a number</mat-error>
+
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit">Send</button>
+</form>
