@@ -1,8 +1,8 @@
 import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { PostInterface } from '@common/interfaces/post.interface';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
+import { PostInterface } from '@api/interfaces/post.interface';
 
 export interface CashItemInterface {
   data: any;

@@ -3,9 +3,9 @@ import { ApiService } from '@api/api.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { catchError, map, switchMap, takeUntil } from 'rxjs/operators';
 import { EMPTY, Observable, Subject } from 'rxjs';
-import { PostInterface } from '@common/interfaces/post.interface';
-import { ErrorInterface } from '@common/interfaces/error.interface';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { PostInterface } from '@api/interfaces/post.interface';
+import { ErrorInterface } from '@api/interfaces/error.interface';
 
 @Component({
   selector: 'app-detail',

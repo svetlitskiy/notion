@@ -1,21 +1,6 @@
 version: '3'
 
 services:
-#  notion-backend-nestjs:
-#    container_name: notion-backend-nestjs
-#    image: node:12.7-alpine
-#    ports:
-#      - ${APP_BACKEND_PORT}:3000
-#    env_file:
-#      - .env
-#    volumes:
-#      - ./backend:/app
-#    depends_on:
-#      - notion-backend-postgres
-#    working_dir: /app
-#    command: npm run start:dev
-#    networks:
-#      - notion
 
   notion-backend-postgres:
     container_name: notion-backend-postgres

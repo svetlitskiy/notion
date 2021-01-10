@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { ErrorInterface } from '../../../common/interfaces/error.interface';
+import { ErrorInterface } from './api/interfaces/error.interface';
 
 export class ErrorType extends ErrorInterface {
     @ApiProperty({ description: 'Error code' })

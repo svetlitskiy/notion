@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ApiService } from '../api/api.service';
+import { ApiService } from '@api/api.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
-import { ErrorInterface } from '../../../../common/interfaces/error.interface';
+import { ErrorInterface } from '@api/interfaces/error.interface';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { regex } from '../share/regex';
+import { regex } from '@share/regex';
 
 const MAX_INT_VALUE = 2147483647;
 
