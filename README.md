@@ -18,23 +18,25 @@ $ npm install
 
 run PostgreSQL
 ```bash
-$ cd backend
-$ docker-compose up
+$ docker-compose up #run in the root folder
 ```
+By default, [docker-compose.yaml](/docker-compose.yaml) configurated for Linux OS, if you have windows, please change volumes path in [docker-compose.yaml](/docker-compose.yaml)
 
-run NestJs
+run NestJs in another terminal
 ```bash
+$ cd backend
 $ npm run start
 ```
 
-After running backend, you need to init database:
+After running backend, you need to init database (Please, make sure that NestJs and Postgres already run)
 ```bash
+$ cd backend
 $ npm run db:init
 ```
 
 Now, you could check backend http://localhost:3000/version, or see Swagger documentation http://localhost:3000/swagger
 
-More information see [backend](/backend) folder or https://nodejs.org/
+See more information in [backend folder](/backend) or https://nodejs.org/
 
 ## Frontend
 ### Installation
@@ -46,6 +48,6 @@ $ npm install
 
 ### Run
 ```bash
-$ npm run start
+$ npm start
 ```
 Open your browser on http://localhost:4200/ 
